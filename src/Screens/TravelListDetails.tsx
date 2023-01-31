@@ -1,7 +1,7 @@
 import {View, Text, SafeAreaView, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {tutorial2Spec, width} from '../config/theme';
+import {tutorial2Spec, width, height} from '../config/theme';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import SharedElement from 'react-navigation-shared-element/build/SharedElement';
 
@@ -47,13 +47,11 @@ const TravelListDetails = () => {
 
       <SharedElement
         id={`item.${item.key}.photo`}
-        style={[StyleSheet.absoluteFillObject]}>
-        <View style={[StyleSheet.absoluteFillObject, {borderRadius: 0}]}>
-          <Image
-            source={{uri: item.image}}
-            style={[StyleSheet.absoluteFillObject, {resizeMode: 'cover'}]}
-          />
-        </View>
+        style={{position: 'absolute', top: 0, left: 0, width, height}}>
+        <Image
+          source={{uri: item.image}}
+          style={{resizeMode: 'cover', width: '100%', height: '100%'}}
+        />
       </SharedElement>
 
       <SharedElement id={`item.${item.key}.location`}>

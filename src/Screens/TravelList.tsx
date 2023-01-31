@@ -49,20 +49,21 @@ const TravelList = () => {
               style={styles.itemContainer}>
               <SharedElement
                 id={`item.${item.key}.photo`}
-                style={[StyleSheet.absoluteFillObject]}>
-                <View
+                style={{margin: SPACING}}>
+                <Animated.Image
+                  source={{uri: item.image}}
                   style={[
-                    StyleSheet.absoluteFillObject,
-                    {overflow: 'hidden', borderRadius: RADIUS},
-                  ]}>
-                  <Animated.Image
-                    source={{uri: item.image}}
-                    style={[
-                      StyleSheet.absoluteFillObject,
-                      {resizeMode: 'cover', transform: [{scale}]},
-                    ]}
-                  />
-                </View>
+                    {
+                      resizeMode: 'cover',
+                      transform: [{scale}],
+                      width: ITEM_WIDTH,
+                      height: ITEM_HEIGHT,
+                      borderRadius: RADIUS,
+                      zIndex: -2,
+                      position: 'absolute',
+                    },
+                  ]}
+                />
               </SharedElement>
               <SharedElement id={`item.${item.key}.location`}>
                 <Animated.Text

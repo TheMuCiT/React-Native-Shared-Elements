@@ -2,11 +2,15 @@ import {StyleSheet, Easing, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {enableScreens} from 'react-native-screens';
 import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import List from './src/Screens/List';
 import Details from './src/Screens/Details';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
+
 import TravelList from './src/Screens/TravelList';
 import TravelListDetails from './src/Screens/TravelListDetails';
+
+import TravelUpList from './src/Screens/TravelUpList';
+import TravelUpDetails from './src/Screens/TravelUpDetails';
 
 enableScreens();
 
@@ -48,13 +52,13 @@ const App = () => {
         </Stack.Navigator> */}
         <Stack.Navigator>
           <Stack.Screen
-            name="TravelList"
-            component={TravelList}
+            name="TravelUpList"
+            component={TravelUpList}
             options={{headerShown: false}}
           />
           <Stack.Screen
-            name="TravelListDetails"
-            component={TravelListDetails}
+            name="TravelUpDetails"
+            component={TravelUpDetails}
             options={{
               headerShown: false,
               transitionSpec: {
