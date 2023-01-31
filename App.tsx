@@ -5,6 +5,8 @@ import {createSharedElementStackNavigator} from 'react-navigation-shared-element
 import List from './src/Screens/List';
 import Details from './src/Screens/Details';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import TravelList from './src/Screens/TravelList';
+import TravelListDetails from './src/Screens/TravelListDetails';
 
 enableScreens();
 
@@ -14,7 +16,7 @@ const App = () => {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <NavigationContainer>
-        <Stack.Navigator>
+        {/* <Stack.Navigator>
           <Stack.Screen
             name="List"
             component={List}
@@ -23,6 +25,36 @@ const App = () => {
           <Stack.Screen
             name="Details"
             component={Details}
+            options={{
+              headerShown: false,
+              transitionSpec: {
+                open: {
+                  animation: 'timing',
+                  config: {duration: 500, easing: Easing.inOut(Easing.ease)},
+                },
+                close: {
+                  animation: 'timing',
+                  config: {duration: 500, easing: Easing.inOut(Easing.ease)},
+                },
+              },
+              gestureEnabled: false,
+              cardStyleInterpolator: ({current: {progress}}) => {
+                return {
+                  cardStyle: {opacity: progress},
+                };
+              },
+            }}
+          />
+        </Stack.Navigator> */}
+        <Stack.Navigator>
+          <Stack.Screen
+            name="TravelList"
+            component={TravelList}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="TravelListDetails"
+            component={TravelListDetails}
             options={{
               headerShown: false,
               transitionSpec: {
